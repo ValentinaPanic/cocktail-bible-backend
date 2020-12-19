@@ -4,7 +4,9 @@ class CocktailsController < ApplicationController
   # GET /cocktails
   # GET /cocktails.json
   def index
-    @cocktails = Cocktail.all
+    cocktails = Cocktail.all
+
+    render json: CocktailSerializer.new(cocktails)
   end
 
   # GET /cocktails/1
@@ -24,17 +26,16 @@ class CocktailsController < ApplicationController
   # POST /cocktails
   # POST /cocktails.json
   def create
-    @cocktail = Cocktail.new(cocktail_params)
+ cocktail = Cocktail.new(cocktail_params)
 
-    respond_to do |format|
-      if @cocktail.save
-        format.html { redirect_to @cocktail, notice: 'Cocktail was successfully created.' }
-        format.json { render :show, status: :created, location: @cocktail }
+    
+      if cocktail.save
+        
+        render json: cocktail, status: :accepted 
       else
-        format.html { render :new }
-        format.json { render json: @cocktail.errors, status: :unprocessable_entity }
+        
+         render json: {errors: cocktail.errors.full_messages}, status: :unprocessable_entity 
       end
-    end
   end
 
   # PATCH/PUT /cocktails/1

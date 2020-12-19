@@ -4,7 +4,9 @@ class IngredientsController < ApplicationController
   # GET /ingredients
   # GET /ingredients.json
   def index
-    @ingredients = Ingredient.all
+    ingredients = Ingredient.all
+
+    render json: IngredientSerializer.new(ingredients)
   end
 
   # GET /ingredients/1
@@ -24,16 +26,15 @@ class IngredientsController < ApplicationController
   # POST /ingredients
   # POST /ingredients.json
   def create
-    @ingredient = Ingredient.new(ingredient_params)
+    ingredient = Ingredient.new(ingredient_params)
 
-    respond_to do |format|
-      if @ingredient.save
-        format.html { redirect_to @ingredient, notice: 'Ingredient was successfully created.' }
-        format.json { render :show, status: :created, location: @ingredient }
+    
+      if ingredient.save
+       
+         render :ingredient, status: :accepted
       else
-        format.html { render :new }
-        format.json { render json: @ingredient.errors, status: :unprocessable_entity }
-      end
+ 
+        render json: {errors: ingredient.errors.full_messages}, status: :unprocessable_entity 
     end
   end
 
