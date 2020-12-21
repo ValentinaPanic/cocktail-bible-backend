@@ -27,11 +27,11 @@ class IngredientsController < ApplicationController
   # POST /ingredients.json
   def create
     ingredient = Ingredient.new(ingredient_params)
-
+    # byebug
     
       if ingredient.save
        
-         render :ingredient, status: :accepted
+         render json: ingredient, status: :accepted
       else
  
         render json: {errors: ingredient.errors.full_messages}, status: :unprocessable_entity 
@@ -70,6 +70,6 @@ class IngredientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ingredient_params
-      params.require(:ingredient).permit(:name, :references)
+      params.require(:ingredient).permit(:name, :cocktail_id)
     end
 end
