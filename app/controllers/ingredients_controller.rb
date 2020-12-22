@@ -31,7 +31,7 @@ class IngredientsController < ApplicationController
     
       if ingredient.save
        
-         render json: ingredient, status: :accepted
+         render json: IngredientSerializer(ingredient), status: :accepted
       else
  
         render json: {errors: ingredient.errors.full_messages}, status: :unprocessable_entity 

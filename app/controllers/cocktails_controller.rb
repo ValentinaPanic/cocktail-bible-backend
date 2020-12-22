@@ -20,7 +20,7 @@ class CocktailsController < ApplicationController
       cocktail = Cocktail.new(cocktail_params)
       if cocktail.save
         
-        render json: cocktail, status: :accepted 
+        render json: CocktailSerializer.new(cocktail), status: :accepted 
       else
         
          render json: {errors: cocktail.errors.full_messages}, status: :unprocessable_entity 
