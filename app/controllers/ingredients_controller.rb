@@ -1,5 +1,5 @@
 class IngredientsController < ApplicationController
-  before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
+  # before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
 
   # GET /ingredients
   # GET /ingredients.json
@@ -55,18 +55,16 @@ class IngredientsController < ApplicationController
   # DELETE /ingredients/1
   # DELETE /ingredients/1.json
   def destroy
-    @ingredient.destroy
-    respond_to do |format|
-      format.html { redirect_to ingredients_url, notice: 'Ingredient was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    ingredient = Ingredient.find(params[:id])
+   ingredient.destroy
+    
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_ingredient
-      @ingredient = Ingredient.find(params[:id])
-    end
+    # def set_ingredient
+      
+    # end
 
     # Only allow a list of trusted parameters through.
     def ingredient_params
