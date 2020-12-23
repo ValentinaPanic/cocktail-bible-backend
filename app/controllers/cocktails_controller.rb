@@ -1,8 +1,7 @@
 class CocktailsController < ApplicationController
   # before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
 
-  # GET /cocktails
-  # GET /cocktails.json
+  
   def index
     cocktails = Cocktail.all
 
@@ -12,7 +11,6 @@ class CocktailsController < ApplicationController
   def show
   end
 
-  # GET /cocktails/1/edit
   def edit
   end
 
@@ -55,7 +53,7 @@ class CocktailsController < ApplicationController
       cocktail = Cocktail.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+ 
     def cocktail_params
       params.require(:cocktail).permit(:name, :image, :instructions)
     end
