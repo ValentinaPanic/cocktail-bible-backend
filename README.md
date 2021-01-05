@@ -1,8 +1,8 @@
-# README
+# Cocktail Bible
 
-Link for the frontend JavaScript: "https://github.com/ValentinaPanic/cocktail-bible-frontend"
+>[Link for the frontend JavaScript](https://github.com/ValentinaPanic/cocktail-bible-frontend)
 
-Installation:
+## Installation:
 
 * Clone this repo
 
