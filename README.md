@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Link for the frontend JavaScript: "https://github.com/ValentinaPanic/cocktail-bible-frontend"
 
-Things you may want to cover:
+Installation:
 
-* Ruby version
+* Clone this repo
 
-* System dependencies
+* Run bundle install
 
-* Configuration
+* Run `rails s` in your terminal
 
-* Database creation
+* Run `rails db:migrate`
 
-* Database initialization
+* To explore the Rails API, open up your browser to "http://localhost:3000" and use RESTful routes to view cocktail index.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
