@@ -1,4 +1,4 @@
-class IngredientSerializer
-  include FastJsonapi::ObjectSerializer
-  attributes :name, :cocktail_id
-end
+# class IngredientSerializer
+#   include FastJsonapi::ObjectSerializer
+#   attributes :name, :cocktail_id, :cocktail
+# end

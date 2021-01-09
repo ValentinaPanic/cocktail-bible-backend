@@ -1,12 +1,11 @@
 class IngredientsController < ApplicationController
   # before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
 
-  # GET /ingredients
-  # GET /ingredients.json
+
   def index
     ingredients = Ingredient.all
-
-    render json: IngredientSerializer.new(ingredients)
+    render json: ingredients
+    # render json: IngredientSerializer.new(ingredients)
   end
 
   # GET /ingredients/1
@@ -14,24 +13,17 @@ class IngredientsController < ApplicationController
   def show
   end
 
-  # GET /ingredients/new
-  def new
-    @ingredient = Ingredient.new
-  end
-
   # GET /ingredients/1/edit
   def edit
   end
 
-  # POST /ingredients
-  # POST /ingredients.json
   def create
+  
     ingredient = Ingredient.new(ingredient_params)
-    # byebug
-    
+  
       if ingredient.save
-       
-         render json: ingredient, status: :accepted
+       render json: ingredient
+        #  render json: IngredientSerializer.new(ingredient), status: :accepted
       else
  
         render json: {errors: ingredient.errors.full_messages}, status: :unprocessable_entity 
@@ -61,12 +53,7 @@ class IngredientsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    # def set_ingredient
-      
-    # end
 
-    # Only allow a list of trusted parameters through.
     def ingredient_params
       params.require(:ingredient).permit(:name, :cocktail_id)
     end
